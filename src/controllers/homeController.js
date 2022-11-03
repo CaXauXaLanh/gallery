@@ -1,6 +1,18 @@
+import connection from "../configs/connectDB"
 
 let getHomePage = (req, res) => {
-    res.render('homePage.ejs')
+        // simple query
+    let data = []
+    connection.query(
+        'SELECT * FROM `users`',
+        function(err, results, fields) {
+            console.log(">>>check mysql...")
+            data = results.map((row) => { return row})
+            res.render('homePage.ejs', {
+                dataUser: JSON.stringify(data),
+            })
+        }
+    ); 
 }
 
 let getInfor = (req, res) => {
