@@ -19,7 +19,7 @@
   </div>
 
   <div class="w3-container">
-    <h2>Danh sách User</h2>
+    <h2 style="padding: 15px 0 25px 60px;">Danh sách User</h2>
 
     <table class="w3-table-all w3-hoverable" style="width: 80%" align="center">
       <thead>
@@ -37,7 +37,7 @@
           <td><%= dataUser[i].firstName %></td>
           <td><%= dataUser[i].lastName %></td>
           <td style="text-align:center;">
-            <button type="button"><a href="/detail/user/<%=dataUser[i]._id%>">Detail</a></button>
+            <button type="button"><a href="/detail/user/<%=dataUser[i]._id%>" style="text-decoration:none">Detail</a></button>
             <button type="button">Edit</button>
             <button type="button">Delete</button>
           </td>
