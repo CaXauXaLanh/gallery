@@ -5,9 +5,11 @@ const router = express.Router()
 
 const initWebRouter = (app) => {
 
+    router.post('/create-new-user', homeController.createNewUser)
+
     router.get('/detail/user/:userID', homeController.getDetail)
 
-    router.get('/about', homeController.getInfor)
+    router.get('/create', homeController.createUser)
 
     router.get('/', homeController.getHomePage)
 

@@ -8,8 +8,8 @@ let getHomePage = async (req, res) => {
     })
 }
 
-let getInfor = (req, res) => {
-    res.send('HAHA')
+let createUser = (req, res) => {
+    res.render('createUser')
 }
 
 let getDetail = async (req, res) => {
@@ -18,8 +18,14 @@ let getDetail = async (req, res) => {
     res.json(user)
 }
 
+let createNewUser = async(req, res) => {
+    let {firstName, lastName, email, address} = req.body
+    await pool.execute(`insert into users(firstName, lastName, email, address) values (?, ?, ?, ?)`,[firstName, lastName, email, address])
+    return res.redirect('/')
+}
 module.exports = {
     getHomePage,
-    getInfor,
+    createUser,
     getDetail,
+    createNewUser,
 }
