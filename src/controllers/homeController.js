@@ -23,9 +23,25 @@ let createNewUser = async(req, res) => {
     await pool.execute(`insert into users(firstName, lastName, email, address) values (?, ?, ?, ?)`,[firstName, lastName, email, address])
     return res.redirect('/')
 }
+
+let deleteUser = async(req, res) => {
+    let userID = req.body.userID
+    await pool.execute('delete from users where _id = ?', [userID])
+    return res.redirect('/')
+}
+let getUpdateUser = async(req, res) => {
+    let id = req.params.userID
+    const [user, field] = await pool.execute('select * from users where _id = ?', [id])
+    res.render('update', {
+        userData: user[0]
+    })
+}
+
 module.exports = {
     getHomePage,
     createUser,
     getDetail,
     createNewUser,
+    deleteUser,
+    getUpdateUser,
 }

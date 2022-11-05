@@ -38,8 +38,11 @@
           <td><%= dataUser[i].lastName %></td>
           <td style="text-align:center;">
             <button type="button"><a href="/detail/user/<%=dataUser[i]._id%>" style="text-decoration:none">Detail</a></button>
-            <button type="button">Edit</button>
-            <button type="button">Delete</button>
+            <button type="button"><a href="/edit/user/<%=dataUser[i]._id%>" style="text-decoration:none">Edit</a></button>
+            <form action="/delete-user" method="POST">
+              <input type="text" hidden value="<%=dataUser[i]._id%>" name="userID">
+              <button type="submit">Delete</button>
+            </form>
           </td>
         </tr>
         <% } %>
