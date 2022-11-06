@@ -17,7 +17,8 @@
     <a href="#contact">Contact</a>
     <a href="#about">About</a>
   </div>
-  <form action="/create-new-user" method="POST">
+  <div style="text-align: center; font-size: 20px;"><b>Edit information user</b></div>
+  <form action="/update-user" method="POST">
     <div class="form-create-user">
       <div>
         <label for="">First Name</label>
@@ -35,6 +36,7 @@
         <label for="">Address</label>
         <input type="text" name="address" value="<%=userData.address%>">
       </div>
+      <input type="text" hidden value="<%=userData._id%>" name="id">
       <button type="submit" style="cursor: pointer;">Update</button>
     </div>
   </form>

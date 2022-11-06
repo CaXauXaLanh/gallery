@@ -5,6 +5,8 @@ const router = express.Router()
 
 const initWebRouter = (app) => {
 
+    router.post('/update-user', homeController.postUpdateUser)
+
     router.get('/edit/user/:userID', homeController.getUpdateUser)
 
     router.post('/delete-user', homeController.deleteUser)
